@@ -35,6 +35,19 @@ void test_divide_positive_numbers(void) {
     TEST_ASSERT_EQUAL(0, divide(2, 3)); // 2 / 3 = 0
 }
 
+void test_divide_positive_and_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(-1, divide(5, -4)); // 5 / (-4) = -1
+}
+
+void test_divide_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(1, divide(-4, -4)); // -4 + (-4) = 1
+}
+
+void test_divide_zero(void) {
+    TEST_ASSERT_EQUAL(10, divide(10, 0)); // 10 / 0 = error
+    TEST_ASSERT_EQUAL(0, divide(0, 0));   // 0 / 0 = error
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);
@@ -44,5 +57,8 @@ int main(void) {
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
     RUN_TEST(test_divide_positive_numbers);
+    RUN_TEST(test_divide_positive_and_negative_numbers);
+    RUN_TEST(test_divide_negative_numbers);
+    RUN_TEST(test_divide_zero); //oh it ignores this test lol
     return UNITY_END();
 }
