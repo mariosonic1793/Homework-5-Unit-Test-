@@ -59,6 +59,45 @@ void test_subtract_underflow(void) {
     TEST_ASSERT_TRUE(result > 0); // Checks underflow
 }
 
+void test_multiply_positive_numbers(void) {
+    TEST_ASSERT_EQUAL(6, multiply(2, 3)); // 2 * 3 = 6
+}
+
+void test_multiply_positive_and_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(-20, multiply(5, -4)); // 5 * (-4) = -20
+}
+
+void test_multiply_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(12, multiply(-3, -4)); // -3 * (-4) = 12
+}
+
+void test_multiply_zero(void) {
+    TEST_ASSERT_EQUAL(0, multiply(10, 0)); // 10 * 0 = 0
+    TEST_ASSERT_EQUAL(0, multiply(0, 0));   // 0 * 0 = 0
+}
+
+void test_multiply_overflow(void) {
+    int result = multiply(INT_MAX, 2);
+    TEST_ASSERT_TRUE(result < 0); // Checks overflow
+}
+
+void test_multiply_underflow(void) {
+    int result = multiply(INT_MIN, 2);
+    TEST_ASSERT_TRUE(result > 0); // Checks underflow
+}
+
+void test_divide_positive_numbers(void) {
+    TEST_ASSERT_EQUAL(0, divide(2, 3)); // 2 / 3 = 0
+}
+
+void test_divide_positive_and_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(-1, divide(5, -4)); // 5 / (-4) = -1
+}
+
+void test_divide_negative_numbers(void) {
+    TEST_ASSERT_EQUAL(1, divide(-4, -4)); // -4 + (-4) = 1
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);
@@ -73,5 +112,14 @@ int main(void) {
     RUN_TEST(test_subtract_zero);
     RUN_TEST(test_subtract_overflow);
     RUN_TEST(test_subtract_underflow);
+    RUN_TEST(test_multiply_positive_numbers);
+    RUN_TEST(test_multiply_positive_and_negative_numbers);
+    RUN_TEST(test_multiply_negative_numbers);
+    RUN_TEST(test_multiply_zero);
+    RUN_TEST(test_multiply_overflow);
+    RUN_TEST(test_multiply_underflow);
+    RUN_TEST(test_divide_positive_numbers);
+    RUN_TEST(test_divide_positive_and_negative_numbers);
+    RUN_TEST(test_divide_negative_numbers);
     return UNITY_END();
 }
