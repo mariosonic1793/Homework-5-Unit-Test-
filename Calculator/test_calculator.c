@@ -34,6 +34,7 @@ void test_add_underflow(void) {
 void test_subtract_positive_numbers(void) {
     TEST_ASSERT_EQUAL(-1, subtract(2, 3)); // 2 - 3 = -1
 }
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);
