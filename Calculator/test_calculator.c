@@ -53,6 +53,11 @@ void test_multiply_overflow(void) {
     TEST_ASSERT_TRUE(result < 0); // Checks overflow
 }
 
+void test_multiply_underflow(void) {
+    int result = multiply(INT_MIN, 2);
+    TEST_ASSERT_TRUE(result > 0); // Checks underflow
+}
+
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);
@@ -66,5 +71,6 @@ int main(void) {
     RUN_TEST(test_multiply_negative_numbers);
     RUN_TEST(test_multiply_zero);
     RUN_TEST(test_multiply_overflow);
+    RUN_TEST(test_multiply_underflow);
     return UNITY_END();
 }
