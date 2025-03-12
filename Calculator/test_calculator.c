@@ -31,6 +31,9 @@ void test_add_underflow(void) {
     TEST_ASSERT_TRUE(result > 0); // Checks underflow
 }
 
+void test_subtract_positive_numbers(void) {
+    TEST_ASSERT_EQUAL(-1, subtract(2, 3)); // 2 - 3 = -1
+}
 int main(void) {
     UNITY_BEGIN();
     RUN_TEST(test_add_positive_numbers);
@@ -39,5 +42,6 @@ int main(void) {
     RUN_TEST(test_add_zero);
     RUN_TEST(test_add_overflow);
     RUN_TEST(test_add_underflow);
+    RUN_TEST(test_subtract_positive_numbers);
     return UNITY_END();
 }
